@@ -14,6 +14,18 @@ pipeline {
       }
     }
 
+    stage('package-the-app') {
+      steps {
+        sh 'mvn package -DskipTests'
+      }
+    }
+
+    stage('archive') {
+      steps {
+        archiveArtifacts '**/target/*.jar'
+      }
+    }
+
   }
   tools {
     maven 'maven'
