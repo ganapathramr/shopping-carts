@@ -8,6 +8,12 @@ pipeline {
       }
     }
 
+    stage('test-the-app') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+
   }
   tools {
     maven 'maven'
